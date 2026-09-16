@@ -1,0 +1,50 @@
+{
+  "name": "@pabloherre/react-dom-confetti",
+  "version": "1.0.0",
+  "author": {
+    "name": "Pablo A. Herrera",
+    "email": "pablo.a.herrera@gmail.com"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:demo && npm run build:library",
+    "build:demo": "vite build",
+    "build:library": "vite build --mode library",
+    "preview:gif": "npm run build:demo && node scripts/capture-preview.mjs",
+    "lint": "oxlint src",
+    "preview": "vite preview --outDir dist-demo",
+    "prepublishOnly": "npm run build:library"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "preview.gif"
+  ],
+  "main": "./dist/react-dom-confetti.cjs",
+  "module": "./dist/react-dom-confetti.js",
+  "exports": {
+    ".": {
+      "import": "./dist/react-dom-confetti.js",
+      "require": "./dist/react-dom-confetti.cjs"
+    },
+    "./styles.css": "./dist/react-dom-confetti.css"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "gifenc": "^1.0.3",
+    "oxlint": "^1.81.0",
+    "playwright": "^1.63.0",
+    "pngjs": "^7.0.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "sass-embedded": "^1.104.1",
+    "vite": "^8.3.0"
+  }
+}

@@ -1,0 +1,67 @@
+:root {
+  color: #f7f4ec;
+  background: #11131a;
+  font-family: 'Avenir Next', 'Segoe UI', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+body { min-width: 320px; min-height: 100vh; margin: 0; }
+button, a { font: inherit; }
+
+.app {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  overflow: hidden;
+  place-items: center;
+  padding: clamp(1.5rem, 5vw, 5rem);
+  isolation: isolate;
+  background: radial-gradient(circle at 15% 15%, rgba(255, 186, 73, 0.15), transparent 28%), radial-gradient(circle at 85% 80%, rgba(52, 211, 153, 0.13), transparent 30%), #11131a;
+}
+
+.app::before, .app::after {
+  position: absolute;
+  z-index: -1;
+  width: 32rem;
+  height: 32rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  content: '';
+}
+.app::before { top: -18rem; right: -9rem; }
+.app::after { bottom: -22rem; left: -11rem; }
+
+.demo-card {
+  position: relative;
+  display: grid;
+  width: min(100%, 56rem);
+  min-height: min(70vh, 42rem);
+  align-content: center;
+  overflow: hidden;
+  padding: clamp(2rem, 7vw, 6rem);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 2rem;
+  background: linear-gradient(140deg, rgba(43, 47, 62, 0.92), rgba(24, 27, 37, 0.84));
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3), inset 0 1px rgba(255, 255, 255, 0.08);
+  isolation: isolate;
+}
+.demo-card::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+  content: '';
+}
+
+.eyebrow { margin: 0 0 1.25rem; color: #f8c66d; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; }
+.demo-card h1 { max-width: 10ch; margin: 0; color: #fffaf0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3.75rem, 10vw, 7.5rem); font-weight: 400; letter-spacing: -0.07em; line-height: 0.86; }
+.demo-card p:not(.eyebrow) { max-width: 28rem; margin: 2rem 0 0; color: #b8bdc9; font-size: clamp(1rem, 2vw, 1.18rem); line-height: 1.65; }
+
+@media (max-width: 600px) {
+  .app { padding: 1rem; }
+  .demo-card { min-height: calc(100vh - 2rem); border-radius: 1.5rem; }
+}
