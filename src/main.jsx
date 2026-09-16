@@ -6,8 +6,9 @@ import Confetti from './Confetti.jsx';
 
 const defaultSettings = {
   elementId: 'confetti-demo',
-  particles: 32,
+  particles: 40,
   speed: 1,
+  delay: 0,
   repeat: 'infinite',
   size: 1,
   glow: true,
@@ -40,6 +41,10 @@ export function Demo() {
               <input type="range" min="0.25" max="3" step="0.25" value={settings.speed} aria-label="Animation speed" onChange={event => updateSetting('speed', Number(event.target.value))} />
             </label>
             <label className="control">
+              <span className="control-label"><span>Delay</span><output>{settings.delay} ms</output></span>
+              <input type="range" min="0" max="5000" step="100" value={settings.delay} aria-label="Animation delay" onChange={event => updateSetting('delay', Number(event.target.value))} />
+            </label>
+            <label className="control">
               <span className="control-label"><span>Size</span><output>{settings.size}×</output></span>
               <input type="range" min="0.25" max="2" step="0.25" value={settings.size} aria-label="Particle size" onChange={event => updateSetting('size', Number(event.target.value))} />
             </label>
@@ -66,7 +71,7 @@ export function Demo() {
           <p className="eyebrow">React DOM Confetti</p>
           <h2>Make a moment of it.</h2>
           <p>Small celebrations deserve a little movement, color, and a reason to linger.</p>
-          <Confetti key={`${settings.elementId}-${settings.repeat}`} elementId={settings.elementId} particles={settings.particles} speed={settings.speed} repeat={settings.repeat} size={settings.size} glow={settings.glow} />
+          <Confetti key={`${settings.elementId}-${settings.repeat}`} elementId={settings.elementId} particles={settings.particles} speed={settings.speed} delay={settings.delay} repeat={settings.repeat} size={settings.size} glow={settings.glow} />
         </section>
       </div>
     </main>

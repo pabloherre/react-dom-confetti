@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-function Confetti({ elementId, element,  speed = 1, particles = 32, repeat = 'infinite', size = 1, glow = true }) {
+function Confetti({ elementId, element,  speed = 1, particles = 40, repeat = 'infinite', size = 1, glow = true, delay=0 }) {
   const [target, setTarget] = useState(null);
   const [confettiStyle, setConfettiStyle] = useState(null);
 
@@ -25,8 +25,9 @@ function Confetti({ elementId, element,  speed = 1, particles = 32, repeat = 'in
         '--confetti-size-100': `${elementHeight}px`,
         '--confetti-duration': 1 / speed,
         '--confetti-repeat': repeat,
-        '--confetti-size': size,
-        '--confetti-glow': glow ? '0 0 0.5rem currentColor' : 'none',
+        '--confetti-size': 1.5 * size,
+        '--confetti-glow': glow ? '0 0 0.3rem currentColor' : 'none',
+        '--confetti-delay': `${delay < 2300 ? (delay) : delay+2300}ms`,
       });
     });
 
@@ -35,14 +36,20 @@ function Confetti({ elementId, element,  speed = 1, particles = 32, repeat = 'in
       setTarget(null);
       setConfettiStyle(null);
     };
-  }, [element, elementId, speed, repeat, size, glow]);
+  }, [element, elementId, speed, particles, repeat, size, glow, delay]);
 
   if (!target) return null;
 
   return createPortal(
     <div className="confettiField" style={confettiStyle} aria-hidden="true">
       {Array.from({ length: particles }, (_, index) => (
-        <i key={`confetti_${index}`} className="piece" />
+        <i
+          key={`confetti_${index}`}
+          className="piece"
+          style={{
+            '--confetti-animation': Math.random()>=0.5 ? 'confetti-fall' : 'confetti-fall-inverse'
+          }}
+        />
       ))}
     </div>,
     target,

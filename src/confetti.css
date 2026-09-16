@@ -1,8 +1,9 @@
 .confettiField {
     position: absolute;
-    inset: 0 3%;
+    inset: 0 1%;
     display: flex;
     align-items: flex-start;
+    align-content: flex-start;
     justify-content: space-between;
     overflow: hidden;
     pointer-events: none;
@@ -14,7 +15,7 @@
     top: -18px;
     flex: 0 0 auto;
     border-radius: 2px;
-    animation: confetti-fall 30s linear var(--confetti-repeat);
+    animation: var(--confetti-animation) 30s linear var(--confetti-repeat);
     animation-fill-mode: forwards;
     box-shadow: var(--confetti-glow)
 }
@@ -115,47 +116,47 @@
 }
 
 .piece:nth-child(11n + 1) {
-    animation-delay: -0.9s;
+    animation-delay: calc(var(--confetti-delay) + -0.9s);
 }
 
 .piece:nth-child(11n + 2) {
-    animation-delay: -1.7s;
+    animation-delay: calc(var(--confetti-delay) + -1.7s);
 }
 
 .piece:nth-child(11n + 3) {
-    animation-delay: -0.3s;
+    animation-delay: calc(var(--confetti-delay) + -0.3s);
 }
 
 .piece:nth-child(11n + 4) {
-    animation-delay: -2.05s;
+    animation-delay: calc(var(--confetti-delay) + -2.05s);
 }
 
 .piece:nth-child(11n + 5) {
-    animation-delay: -1.2s;
+    animation-delay: calc(var(--confetti-delay) + -1.2s);
 }
 
 .piece:nth-child(11n + 6) {
-    animation-delay: -0.55s;
+    animation-delay: calc(var(--confetti-delay) + -0.55s);
 }
 
 .piece:nth-child(11n + 7) {
-    animation-delay: -1.95s;
+    animation-delay: calc(var(--confetti-delay) + -1.95s);
 }
 
 .piece:nth-child(11n + 8) {
-    animation-delay: -0.75s;
+    animation-delay: calc(var(--confetti-delay) + -0.75s);
 }
 
 .piece:nth-child(11n + 9) {
-    animation-delay: -1.45s;
+    animation-delay: calc(var(--confetti-delay) + -1.45s);
 }
 
 .piece:nth-child(11n + 10) {
-    animation-delay: -0.15s;
+    animation-delay: calc(var(--confetti-delay) + -0.15s);
 }
 
 .piece:nth-child(11n) {
-    animation-delay: -2.3s;
+    animation-delay: calc(var(--confetti-delay) + -2.3s);
 }
 
 .piece:nth-child(3n + 2) {
@@ -167,24 +168,19 @@
 }
 
 @keyframes confetti-fall {
-    0% {
-        transform: translateY(0) rotate(0deg) scaleX(1);
-        opacity: 1;
-    }
-    25% {
-        transform: translateY(var(--confetti-size-25)) rotate(90deg) scaleX(0);
-    }
-    50% {
-        transform: translateY(var(--confetti-size-50)) rotate(180deg) scaleX(-1);
-    }
-    75% {
-        transform: translateY(var(--confetti-size-75)) rotate(270deg) scaleX(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(var(--confetti-size-100)) rotate(360deg) scaleX(1);
-        opacity: 0;
-    }
+  0% {transform: translateY(0) rotate(0deg) scaleX(1); opacity: 1;}
+  25% {transform: translateY(var(--confetti-size-25)) rotate(90deg) scaleX(0);}
+  50% {transform: translateY(var(--confetti-size-50)) rotate(180deg) scaleX(-1);}
+  75% {transform: translateY(var(--confetti-size-75)) rotate(270deg) scaleX(0); opacity: 1;}
+  100% {transform: translateY(var(--confetti-size-100)) rotate(360deg) scaleX(1); opacity: 0;}
+}
+
+@keyframes confetti-fall-inverse {
+  0% {transform: translateY(0) rotate(0deg) scaleX(0);opacity: 1;}
+  25% {transform: translateY(var(--confetti-size-25)) rotate(-90deg) scaleX(1);}
+  50% {transform: translateY(var(--confetti-size-50)) rotate(-180deg) scaleX(0);}
+  75% {transform: translateY(var(--confetti-size-75)) rotate(-270deg) scaleX(-1);opacity: 1;}
+  100% {transform: translateY(var(--confetti-size-100)) rotate(-360deg) scaleX(0);opacity: 0;}
 }
 
 @media (prefers-reduced-motion: reduce) {
