@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig(({ mode }) => ({
   plugins: [react()],
+  base: mode === 'library' ? '/' : process.env.GITHUB_ACTIONS ? '/react-dom-confetti/' : '/',
   publicDir: mode === 'library' ? false : 'public',
   build: mode === 'library'
     ? {

@@ -4,7 +4,7 @@ A lightweight React component that adds animated confetti to an existing DOM ele
 
 ## Preview
 
-![React DOM Confetti preview](./preview.gif)
+[View the live demo](https://pabloherre.github.io/react-dom-confetti/)
 
 ## Install
 
@@ -66,3 +66,8 @@ The target element should have `position: relative` so the confetti stays inside
 ## Development
 
 Run the local showcase with `npm run dev`. Build both the demo and package with `npm run build`.
+
+To preview the production demo, run `npm run preview`. This builds `dist-demo`
+and serves it through Vite. Do not open `dist-demo/index.html` through the
+WebStorm `localhost:63342` static server, because that server does not serve
+the generated `/assets` files from the demo output directory.

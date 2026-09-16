@@ -11,15 +11,13 @@
     "build": "npm run build:demo && npm run build:library",
     "build:demo": "vite build",
     "build:library": "vite build --mode library",
-    "preview:gif": "npm run build:demo && node scripts/capture-preview.mjs",
     "lint": "oxlint src",
-    "preview": "vite preview --outDir dist-demo",
+    "preview": "npm run build:demo && vite preview --outDir dist-demo",
     "prepublishOnly": "npm run build:library"
   },
   "files": [
     "dist",
-    "README.md",
-    "preview.gif"
+    "README.md"
   ],
   "main": "./dist/react-dom-confetti.cjs",
   "module": "./dist/react-dom-confetti.js",
