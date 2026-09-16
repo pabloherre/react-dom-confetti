@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-function Confetti({ elementId, element,  speed = 2, particles = 32, repeat = 'infinite', size = 1 }) {
+function Confetti({ elementId, element,  speed = 1, particles = 32, repeat = 'infinite', size = 1, glow = true }) {
   const [target, setTarget] = useState(null);
 
   useEffect(() => {
@@ -18,10 +18,11 @@ function Confetti({ elementId, element,  speed = 2, particles = 32, repeat = 'in
     document.documentElement.style.setProperty('--confetti-duration', 1 / speed);
     document.documentElement.style.setProperty('--confetti-repeat', repeat);
     document.documentElement.style.setProperty('--confetti-size', size);
+    document.documentElement.style.setProperty('--confetti-glow', glow? '0 0 0.5rem currentColor': 'none');
     const frame = requestAnimationFrame(() => setTarget(targetElement));
 
     return () => cancelAnimationFrame(frame);
-  }, [element, elementId, speed, repeat, size]);
+  }, [element, elementId, speed, repeat, size, glow]);
 
   if (!target) return null;
 

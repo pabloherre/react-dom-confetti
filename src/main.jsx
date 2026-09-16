@@ -10,6 +10,7 @@ const defaultSettings = {
   speed: 1,
   repeat: 'infinite',
   size: 1,
+  glow: true,
 };
 
 export function Demo() {
@@ -51,6 +52,13 @@ export function Demo() {
                 <option value="3">Three times</option>
               </select>
             </label>
+            <label className="control glow-control control-wide">
+              <span className="control-label"><span>Glow</span><output>{settings.glow ? 'On' : 'Off'}</output></span>
+              <span className="checkbox-row">
+                <input type="checkbox" checked={settings.glow} aria-label="Enable confetti glow" onChange={event => updateSetting('glow', event.target.checked)} />
+                <span>Give each piece a soft color-matched glow</span>
+              </span>
+            </label>
             <button type="button" className="reset-button" onClick={() => setSettings(defaultSettings)}>Reset defaults</button>
           </form>
         </aside>
@@ -58,7 +66,7 @@ export function Demo() {
           <p className="eyebrow">React DOM Confetti</p>
           <h2>Make a moment of it.</h2>
           <p>Small celebrations deserve a little movement, color, and a reason to linger.</p>
-          <Confetti key={`${settings.elementId}-${settings.repeat}`} elementId={settings.elementId} particles={settings.particles} speed={settings.speed} repeat={settings.repeat} size={settings.size} />
+          <Confetti key={`${settings.elementId}-${settings.repeat}`} elementId={settings.elementId} particles={settings.particles} speed={settings.speed} repeat={settings.repeat} size={settings.size} glow={settings.glow} />
         </section>
       </div>
     </main>

@@ -53,6 +53,8 @@ button, a { font: inherit; }
 .control select option { background: #202431; }
 .control input[type='text']:focus, .control select:focus { border-color: #f8c66d; box-shadow: 0 0 0 3px rgba(248, 198, 109, 0.16); }
 .control input[type='range'] { width: 100%; accent-color: #f8c66d; cursor: pointer; }
+.checkbox-row { display: flex; align-items: center; gap: 0.65rem; color: #aeb4c2; font-size: 0.82rem; line-height: 1.4; }
+.checkbox-row input { width: 1rem; height: 1rem; margin: 0; accent-color: #f8c66d; cursor: pointer; }
 .reset-button { grid-column: 1 / -1; justify-self: start; padding: 0.65rem 0; border: 0; background: transparent; color: #aeb4c2; cursor: pointer; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
 .reset-button:hover, .reset-button:focus-visible { color: #f8c66d; }
 

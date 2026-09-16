@@ -1,5 +1,5 @@
 .confettiField { position: absolute; inset: 0 3%; display: flex; align-items: flex-start; justify-content: space-between; overflow: hidden; pointer-events: none; flex-wrap: wrap; }
-.piece { position: relative; top: -18px; flex: 0 0 auto; border-radius: 2px; animation: confetti-fall 30s linear var(--confetti-repeat); box-shadow: 0 0 0.5rem currentColor; }
+.piece { position: relative; top: -18px; flex: 0 0 auto; border-radius: 2px; animation: confetti-fall 30s linear var(--confetti-repeat); box-shadow: var(--confetti-glow) }
 .piece:nth-child(8n + 1) { background: #ff6b6b; color: #ff6b6b; }
 .piece:nth-child(8n + 2) { background: #38bdf8; color: #38bdf8; }
 .piece:nth-child(8n + 3) { background: #ffd444; color: #ffd444; }

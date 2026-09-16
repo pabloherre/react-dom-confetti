@@ -25,7 +25,7 @@ export default function Celebration() {
   return (
     <section ref={setCelebration} id="celebration">
       <h1>Congratulations!</h1>
-      <Confetti element={celebration} particles={42} speed={2} />
+      <Confetti element={celebration} particles={42} speed={2} glow />
     </section>
   );
 }
@@ -41,7 +41,7 @@ export default function Celebration() {
   return (
     <section id="celebration">
       <h1>Congratulations!</h1>
-      <Confetti elementId="celebration" particles={42} speed={2} />
+      <Confetti elementId="celebration" particles={42} speed={2} glow />
     </section>
   );
 }
@@ -62,6 +62,7 @@ The target element should have `position: relative` so the confetti stays inside
 | `speed` | `number` | `2` | Animation speed multiplier. Higher values make the confetti move faster. |
 | `repeat` | `string` | `'infinite'` | CSS animation repeat value, such as `'infinite'` or `'1'`. |
 | `size` | `number` | `1` | Confetti piece size multiplier. Values below `1` shrink pieces; values above `1` enlarge them. |
+| `glow` | `boolean` | `true` | Enables a soft color-matched glow around each confetti piece. |
 
 ## Development
 
