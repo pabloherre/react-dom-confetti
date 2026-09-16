@@ -12,7 +12,7 @@ A lightweight React component that adds animated confetti to an existing DOM ele
 npm install @pabloherre/react-dom-confetti
 ```
 
-## Usage
+## Usage by ref
 
 ```jsx
 import { useState } from 'react';
@@ -26,6 +26,22 @@ export default function Celebration() {
     <section ref={setCelebration} id="celebration">
       <h1>Congratulations!</h1>
       <Confetti element={celebration} particles={42} speed={2} />
+    </section>
+  );
+}
+```
+
+## Usage by id
+```jsx
+import { useState } from 'react';
+import Confetti from '@pabloherre/react-dom-confetti';
+import '@pabloherre/react-dom-confetti/styles.css';
+
+export default function Celebration() {
+  return (
+    <section id="celebration">
+      <h1>Congratulations!</h1>
+      <Confetti elementId="celebration" particles={42} speed={2} />
     </section>
   );
 }
