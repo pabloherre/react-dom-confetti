@@ -15,13 +15,13 @@ function Confetti({ elementId, element,  speed = 2, particles = 32, repeat = 'in
     document.documentElement.style.setProperty('--confetti-size-50', `${elementHeight / 2}px`);
     document.documentElement.style.setProperty('--confetti-size-75', `${elementHeight - elementHeight / 3}px`);
     document.documentElement.style.setProperty('--confetti-size-100', `${elementHeight}px`);
-    document.documentElement.style.setProperty('--confetti-duration', speed);
+    document.documentElement.style.setProperty('--confetti-duration', 1 / speed);
     document.documentElement.style.setProperty('--confetti-repeat', repeat);
     document.documentElement.style.setProperty('--confetti-size', size);
     const frame = requestAnimationFrame(() => setTarget(targetElement));
 
     return () => cancelAnimationFrame(frame);
-  }, [elementId, repeat, speed]);
+  }, [element, elementId, speed, repeat, size]);
 
   if (!target) return null;
 

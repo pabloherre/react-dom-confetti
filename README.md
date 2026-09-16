@@ -59,7 +59,7 @@ The target element should have `position: relative` so the confetti stays inside
 | `element` | `HTMLElement \| null` | — | DOM element that receives the confetti portal. Takes precedence over `elementId`. |
 | `elementId` | `string` | — | ID of the element that receives the confetti portal when `element` is not provided. |
 | `particles` | `number` | `32` | Number of confetti pieces to render. |
-| `speed` | `number` | `2` | Base animation duration multiplier. Lower means faster animation. |
+| `speed` | `number` | `2` | Animation speed multiplier. Higher values make the confetti move faster. |
 | `repeat` | `string` | `'infinite'` | CSS animation repeat value, such as `'infinite'` or `'1'`. |
 | `size` | `number` | `1` | Confetti piece size multiplier. Values below `1` shrink pieces; values above `1` enlarge them. |
 
